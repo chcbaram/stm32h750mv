@@ -21,6 +21,9 @@ extern "C" {
 #include "usb.h"
 #include "uart.h"
 #include "cmdif.h"
+#include "gpio.h"
+#include "spi.h"
+
 
 
 void hwInit(void);

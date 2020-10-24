@@ -39,5 +39,13 @@
 #define      HW_CMDIF_CMD_STR_MAX           16
 #define      HW_CMDIF_CMD_BUF_LENGTH        128
 
+#define _USE_HW_GPIO
+#define      HW_GPIO_MAX_CH         3
+
+#define _USE_HW_SPI
+#define      HW_SPI_MAX_CH          1
+
+#define _USE_HW_ST7735
+
 
 #endif /* SRC_HW_HW_DEF_H_ */

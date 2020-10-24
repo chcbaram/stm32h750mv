@@ -11,7 +11,7 @@
 #include "hw.h"
 
 
-
+extern bool st7735Init(void);
 
 
 void hwInit(void)
@@ -22,6 +22,8 @@ void hwInit(void)
   swtimerInit();
   ledInit();
   buttonInit();
+  gpioInit();
+  spiInit();
   uartInit();
 
 
@@ -31,5 +33,9 @@ void hwInit(void)
 
   uartOpen(_DEF_UART1, 57600);
 
+  st7735Init();
+
 }
+
+
 
