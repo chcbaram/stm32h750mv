@@ -18,6 +18,7 @@ void hwInit(void)
 {
   bspInit();
 
+  cmdifInit();
   swtimerInit();
   ledInit();
   buttonInit();

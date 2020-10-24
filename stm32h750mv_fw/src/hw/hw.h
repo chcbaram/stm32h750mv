@@ -20,6 +20,7 @@ extern "C" {
 #include "swtimer.h"
 #include "usb.h"
 #include "uart.h"
+#include "cmdif.h"
 
 
 void hwInit(void);

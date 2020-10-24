@@ -10,7 +10,7 @@
 
 #include "button.h"
 #include "swtimer.h"
-
+#include "cmdif.h"
 
 
 typedef struct
