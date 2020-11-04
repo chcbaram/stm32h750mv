@@ -23,6 +23,7 @@ extern "C" {
 #include "cmdif.h"
 #include "gpio.h"
 #include "spi.h"
+#include "lcd.h"
 
 
 

@@ -45,7 +45,10 @@
 #define _USE_HW_SPI
 #define      HW_SPI_MAX_CH          1
 
+#define _USE_HW_LCD
 #define _USE_HW_ST7735
+#define      HW_LCD_WIDTH           160
+#define      HW_LCD_HEIGHT          80
 
 
 #endif /* SRC_HW_HW_DEF_H_ */

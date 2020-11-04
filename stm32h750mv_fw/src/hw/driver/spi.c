@@ -172,6 +172,20 @@ void spiSetBitOrder(uint8_t spi_ch, uint8_t bitOrder)
   HAL_SPI_Init(&p_spi->h_spi);
 }
 
+void spiSetBitWidth(uint8_t spi_ch, uint8_t bit_width)
+{
+  spi_t  *p_spi = &spi_tbl[spi_ch];
+
+  if (p_spi->is_open == false) return;
+
+  p_spi->h_spi.Init.DataSize = SPI_DATASIZE_8BIT;
+
+  if (bit_width == 16)
+  {
+    p_spi->h_spi.Init.DataSize = SPI_DATASIZE_16BIT;
+  }
+  HAL_SPI_Init(&p_spi->h_spi);
+}
 
 void spiSetClockDivider(uint8_t spi_ch, uint32_t clockDiv)
 {
@@ -358,7 +372,7 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
     }
   }
 }
-void DMA1_Stream1_IRQHandler(void)
+void DMA_STR1_IRQHandler(void)
 {
   HAL_DMA_IRQHandler(spi_tbl[_DEF_SPI1].h_spi.hdmatx);
 }
@@ -380,6 +394,11 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi)
   if (hspi->Instance == spi_tbl[_DEF_SPI1].h_spi.Instance)
   {
     p_spi = &spi_tbl[_DEF_SPI1];
+
+    if (p_spi->is_open == true)
+    {
+      return;
+    }
 
     /*##-1- Enable peripherals and GPIO Clocks #################################*/
     /* Enable SPI clock */

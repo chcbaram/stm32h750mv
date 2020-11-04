@@ -43,6 +43,7 @@ void spiDmaTransfer(uint8_t spi_ch, void *buf, uint32_t length, uint32_t timeout
 void spiSetBitOrder(uint8_t spi_ch, uint8_t bitOrder);
 void spiSetClockDivider(uint8_t spi_ch, uint32_t clockDiv);
 void spiSetDataMode(uint8_t spi_ch, uint8_t dataMode);
+void spiSetBitWidth(uint8_t spi_ch, uint8_t bit_width);
 
 
 void spiDmaStartTx(uint8_t spi_ch, uint8_t *p_buf, uint32_t length);

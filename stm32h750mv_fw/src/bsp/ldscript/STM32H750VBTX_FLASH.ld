@@ -34,7 +34,7 @@ ENTRY(Reset_Handler)
 /* Highest address of the user mode stack */
 _estack = ORIGIN(RAM_D1) + LENGTH(RAM_D1);	/* end of "RAM_D1" Ram type memory */
 
-_Min_Heap_Size = 0x200 ;	/* required amount of heap  */
+_Min_Heap_Size  = 0x200 ;	/* required amount of heap  */
 _Min_Stack_Size = 0x400 ;	/* required amount of stack */
 
 /* Memories definition */
@@ -144,6 +144,40 @@ SECTIONS
     
   } >DTCMRAM AT> FLASH
 
+  .sram_d1 :
+  {
+    . = ALIGN(4);
+    _ssram_d1 = .;       /* create a global symbol at sram_d1 start */
+    *(.sram_d1)
+    *(.sram_d1*)
+    
+    . = ALIGN(4);
+    _esram_d1 = .;       /* create a global symbol at sram_d1 end */
+  } >RAM_D1 
+
+  .sram_d2 :
+  {
+    . = ALIGN(4);
+    _ssram_d2 = .;       /* create a global symbol at sram_d2 start */
+    *(.sram_d2)
+    *(.sram_d2*)
+    
+    . = ALIGN(4);
+    _esram_d2 = .;       /* create a global symbol at sram_d2 end */
+  } >RAM_D2   
+  
+  .sram_d3 :
+  {
+    . = ALIGN(4);
+    _ssram_d3 = .;       /* create a global symbol at sram_d3 start */
+    *(.sram_d3)
+    *(.sram_d3*)
+    
+    . = ALIGN(4);
+    _esram_d3 = .;       /* create a global symbol at sram_d3 end */
+  } >RAM_D3 
+  
+  
   /* Uninitialized data section into "RAM_D1" Ram type memory */
   . = ALIGN(4);
   .bss :
